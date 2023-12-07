@@ -49,18 +49,18 @@ $(document).ready(function () {
       type: "POST",
       data: {
         name: name,
-        phone: phone,
+        phonenumber: phone,
         email: email,
-        mess: mess,
-        _token: "{{csrf_token()}}"
+        message: mess,
+        _token: $('meta[name="csrf-token"]').attr("content")
       },
       success: function success(response) {
         btn.textContent = "Odoslané";
         result.textContent = "Odoslane!!!";
       },
       error: function error(data) {
-        btn.textContent = "Odoslané";
-        result.textContent = "Odoslane!!!";
+        btn.textContent = "NeOdoslané";
+        result.textContent = "NeOdoslane!!!";
       }
     });
   });
