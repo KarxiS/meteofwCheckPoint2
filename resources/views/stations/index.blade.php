@@ -16,13 +16,11 @@
 
     <div>
         @if(session()->has('OK'))
-            <div class="alert alert-success">
-                {{session('OK')}}
+            <div class="alert alert-success">{{session('OK')}}
             </div>
         @endif
         @if(session()->has('Error'))
-            <div class="alert alert-danger">
-                {{session('Error')}}
+            <div class="alert alert-danger">{{session('Error')}}
             </div>
         @endif
     </div>

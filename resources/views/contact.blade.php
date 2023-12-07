@@ -5,6 +5,9 @@
 <head>
     <title>Meteostanica Kontaktný formulár</title>
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('js/formSpojme.js') }}"></script>
+    
 </head>
 
 <body>
@@ -72,24 +75,24 @@
     </div>
     <div class="contact-w1000">
         <h6 class="">Kontaktný formulár</h6>
-        <form id="contactform" method="post" novalidate="novalidate" action="#">
+        <form id="contactform" method="post" novalidate="novalidate" action="#" data-url="{{ url('/contact') }}">
             <div class="form-group ">
-                <input type="text" name="name" class="form-control" id="inputName" placeholder="Meno a priezvisko *">
+                <input type="text" name="name" class="form-control" id="nameSpoj" placeholder="Meno a priezvisko *">
             </div>
             <div class="form-group ">
-                <input type="text" name="email" class="form-control" id="inputEmail" placeholder="E-mail *">
+                <input type="text" name="email" class="form-control" id="emailSpoj" placeholder="E-mail *">
             </div>
             <div class="form-group ">
-                <input type="text" name="phonenumber" class="form-control" id="inputPhone" placeholder="Tel. číslo">
+                <input type="text" name="phonenumber" class="form-control" id="phoneSpoj" placeholder="Tel. číslo">
             </div>
             <div class="form-group ">
                 <textarea name="message" class="form-control" rows="7" placeholder="Text správy"
-                    id="textareaMessage"></textarea>
+                    id="messSpoj"></textarea>
             </div>
-            <button type="submit" id="formBtn" class=""><span>odoslať</span></button>
+            <button type="button" id="theme-btn-spojme" class=""><span>odoslať</span></button>
             <div id="resultAjax"></div>
         </form>
-    </div>
+    </div>    
     <!-- FOOTER -->
     <footer class="container">
         <p class="float-end"><a href="#">Ísť na začiatok</a></p>

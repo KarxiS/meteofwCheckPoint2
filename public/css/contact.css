@@ -1,8 +1,7 @@
 .form-group {
     margin-bottom: 15px;
     max-width: 500px;
-    background-color: rgba(1, 1, 1, 0.081);
-    border-radius: 15px;
+    width: 50%;
     
 }
 
@@ -11,7 +10,6 @@
     border: 1px solid var(--farba-primary);
     border-radius: 4px;
     padding: 6px 12px;
-    
 }
 
 

@@ -50,8 +50,8 @@ class StanicaController extends Controller
     {
         try {
             $data = $request->validate([
-                'name' => 'required|string|max:50',
-                'description' => 'required|string',
+                'name' => 'required|string|max:50|min:4',
+                'description' => 'required|string|min:4',
                 'api_link' => 'required|url',
                 'password' => 'required|string|min:4',
             ]);
