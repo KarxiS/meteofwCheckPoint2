@@ -1,0 +1,25 @@
+.bold {
+    font-weight: bold;
+    font-size: larger;
+}
+.price{
+    color: rgb(0, 140, 255);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: 800;
+}
+.red{
+    color: red;
+    
+}
+
+
+
+.price-time {
+    color: darkgoldenrod;
+}
+
+.table-w800 {
+    max-width: 800px;
+     margin: auto;
+}

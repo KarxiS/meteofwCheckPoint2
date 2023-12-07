@@ -1,0 +1,27 @@
+:root {
+    --farba-primary: 255, 0, 0;
+    --farbaProgressText: 120,120,120;
+    --farbaProgressBar:8, 154, 0;
+}
+.text-primary {
+    color: var(--farba-primary);
+}
+.text-secondary {
+    color: gray;
+}
+
+
+body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: rgb(var(--farba-primary));
+    background-image: url('../images/backgroundWeb.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+    
+  
