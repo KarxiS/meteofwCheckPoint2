@@ -37,13 +37,10 @@ $(document).ready(function () {
       alert("Vyplnte vsetky polia.");
       return false;
     }
-    btn.removeAttribute("href");
-    btn.disabled = true;
     if (formSent) {
       return;
     }
     var result = $("#resultAjax");
-    formSent = true;
     $.ajax({
       url: url,
       type: "POST",
@@ -56,11 +53,14 @@ $(document).ready(function () {
       },
       success: function success(response) {
         btn.textContent = "Odoslané";
-        result.textContent = "Odoslane!!!";
+        result.text("Odoslane!!!");
+        btn.removeAttribute("href");
+        btn.disabled = true;
+        formSent = true;
       },
       error: function error(data) {
         btn.textContent = "NeOdoslané";
-        result.textContent = "NeOdoslane!!!";
+        result.text(data.responseJSON.message);
       }
     });
   });
