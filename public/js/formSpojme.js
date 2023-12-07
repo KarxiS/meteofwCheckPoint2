@@ -32,7 +32,7 @@ $(document).ready(function () {
     var mess = $("#messSpoj").val();
     var btn = document.getElementById("theme-btn-spojme");
 
-    // Client-side validation
+    // validacia na strane klienta
     if (!name || !email || !phone || !mess) {
       alert("Vyplnte vsetky polia.");
       return false;
