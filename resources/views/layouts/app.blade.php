@@ -56,15 +56,17 @@
                         href="{{ url('/txtPred') }}">Textová predpoveď</a>
                     <a class="p-2 {{ Request::is('contact') ? 'link-secondary' : 'link-body-emphasis' }}"
                         href="{{ url('/contact') }}">Kontakt</a>
+                        @if(Auth::check())
                     <a class="p-2 {{ Request::is('stations') ? 'link-secondary' : 'link-body-emphasis' }}"
                         href="{{ url('/stations') }}">Pridanie Stanice (logged only)</a>
+                        @endif
                 </nav>
 
 
                 <form class="d-flex me-md-3" role="search">
                     <input type="search" class="form-control" placeholder="Vyhľadať..." aria-label="Search">
                 </form>
-                @if(1==1)
+                @if(Auth::check())
                 <div class="dropdown">
                     <a href="#" class="d-block text-dark text-decoration-none dropdown-toggle" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown">
@@ -72,12 +74,21 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="{{ url('/vlozenieData') }}">Vlož dáta</a></li>
-                        <li><a class="dropdown-item" href="#">Nastavenia</a></li>
-                        <li><a class="dropdown-item" href="#">Profil</a></li>
-                        <li>
+                        <x-responsive-nav-link :href="route('profile.edit')">
+                            {{ __('Profile') }}
+                        </x-responsive-nav-link> <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Odhlásenie</a></li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault(); this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </a>
+                            </form>
+                        </li>
+
+
                     </ul>
                 </div>
                 @else <a class="p-2 " href="{{ url('/login') }}">Login</a>
@@ -106,4 +117,6 @@
     </body>
 </body>
 
+</html>      </div>
+    </body>
 </html>

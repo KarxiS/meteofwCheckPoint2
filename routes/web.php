@@ -1,7 +1,8 @@
 <?php
-
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\StanicaController;
+
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', [StanicaController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__ . '/auth.php';
+
 
 Route::get('/devices', function () {
     return view('devices');
@@ -42,3 +57,4 @@ Route::delete('/stations/{station}/delete', [StanicaController::class, 'delete']
 #TODO
 Route::get('/get_mail', [MailController::class, 'mailform']);
 Route::post('/send_mail', [MailController::class, 'maildata'])->name('send_mail');
+
