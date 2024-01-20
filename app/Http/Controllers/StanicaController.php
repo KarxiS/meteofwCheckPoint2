@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Stanica;
 use Illuminate\Http\Request;
+use App\Models\StationData;
 
 class StanicaController extends Controller
 {
@@ -33,6 +34,17 @@ class StanicaController extends Controller
         return redirect(route('station.index'));
 
 
+    }
+    public function showData(Stanica $station)
+    {
+        $data = StationData::where('station_id', $station->id)->get();
+        $priemerTeplota = $data->avg('temperature');
+        $priemerVlhkost = $data->avg('humidity');
+        return view('stations.data', [
+            'data' => $data,
+            'priemerTeplota' => $priemerTeplota,
+            'priemerVlhkost' => $priemerVlhkost,
+        ]);
     }
 
     public function edit(Stanica $station)

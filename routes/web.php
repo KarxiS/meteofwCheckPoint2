@@ -42,9 +42,16 @@ Route::get('/devices', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-
-
 Route::post('/contact', [ContactController::class, 'store']);
+
+
+Route::get('/contacts', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/contacts/{id}/updateStatus', [ContactController::class, 'updateStatus']);
+Route::put('/contacts/{contact}/update', [ContactController::class, 'update'])->name('contact.update');
+Route::delete('/contacts/{contact}/delete', [ContactController::class, 'delete'])->name('contact.delete');
+
+
+Route::get('/stations/{station}/data', [StanicaController::class, 'showData'])->name('station.data');
 Route::get('/stations', [StanicaController::class, 'index'])->name('station.index');
 Route::get('/stations/create', [StanicaController::class, 'create'])->name('station.create');
 Route::post('/stations', [StanicaController::class, 'store'])->name('station.store');
