@@ -55,17 +55,17 @@
                         <td>{{ $station->user_id}}</td>
                         <td>{{ $station->added_at }}</td>
                         <td>
-                            <a href="{{route("station.data", ['station' => $station])}}">Ukaz</a>
+                            <a href="{{route("station.data", ['station' => $station])}}" class="btn btn-info">Ukaz</a>
                         </td>
                         <td>
-                            <a href="{{route("station.edit", ['station' => $station])}}">Uprav</a>
+                            <a href="{{route("station.edit", ['station' => $station])}}" class="btn btn-primary">Uprav</a>
                         </td>
 
                         <td>
                             <form method="POST" action="{{route('station.delete', ['station' => $station])}}">
                                 @csrf
                                 @method('delete')
-                                <button type="submit">Vymaz</button>
+                                <button class="btn btn-danger" type="submit">Vymaz</button>
                             </form>
                             
                         </td>

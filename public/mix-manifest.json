@@ -4,6 +4,8 @@
     "/js/formSpojme.js": "/js/formSpojme.js",
     "/js/sendEmail2.js": "/js/sendEmail2.js",
     "/js/contactsDropDown.js": "/js/contactsDropDown.js",
+    "/js/validaciaStanicaEdit.js": "/js/validaciaStanicaEdit.js",
+    "/js/validaciaSendMail.js": "/js/validaciaSendMail.js",
     "/css/app.css": "/css/app.css",
     "/css/contact.css": "/css/contact.css",
     "/css/zafarbenieTable.css": "/css/zafarbenieTable.css",

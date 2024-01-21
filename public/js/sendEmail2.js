@@ -32,6 +32,11 @@ $(document).ready(function () {
     var contactId = $(this).attr("data-contact-id");
     var dataStatus = $(this).attr("data-status");
     var inputField = $('input[data-contact-id="' + contactId + '"]');
+    if (!inputField.val()) {
+      alert("Vyplnte text na odoslanie");
+      event.preventDefault();
+      return;
+    }
     sendEmail(contactId, inputField, dataStatus);
     inputField.val("");
     $(this).text("Odoslane").removeClass("btn-primary").addClass("btn-success");

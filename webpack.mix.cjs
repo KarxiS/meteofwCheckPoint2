@@ -15,4 +15,6 @@ mix.js("resources/js/app.js", "public/js")
     .copyDirectory("resources/images", "public/images")
     .js("resources/js/formSpojme.js", "public/js")
     .js("resources/js/sendEmail2.js", "public/js")
-    .js("resources/js/contactsDropDown.js", "public/js");
+    .js("resources/js/contactsDropDown.js", "public/js")
+    .js("resources/js/validaciaStanicaEdit.js", "public/js")
+    .js("resources/js/validaciaSendMail.js", "public/js");

@@ -139,7 +139,7 @@ class StanicaController extends Controller
             $station->update($data);
             return redirect(route('station.index'))->with('OK', 'Stanica aktualizovana uspesne');
         } catch (\Exception $e) {
-            return redirect(route('station.index'))->withErrors(['Error', $e->getMessage()]);
+            return back()->withErrors(['error' => $e->getMessage()])->withInput();
         }
     }
 

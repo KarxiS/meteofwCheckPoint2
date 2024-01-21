@@ -8,9 +8,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
     <title>Pridanie stanice</title>
-
+    <link href="{{ asset('css/contact.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('js/validaciaStanicaEdit.js') }}" ></script>
+    
 </head>
 
 <body>
@@ -23,20 +25,20 @@
         </ul>
         @endif
     </div>
-    <form method="post" action="{{route('station.store')}}" class="form-group">
+    <form method="post" action="{{route('station.store')}}" class="form-group" id="myForm">
         @csrf
         <h1>Pridať novú stanicu</h1>
         <div class="form-group">
             <label>Meno stanice</label>
-            <input type="text" name="name" placeholder="Meno Stanice" class="form-control">
+            <input type="text" id="name" name="name" placeholder="Meno Stanice" class="form-control">
         </div>
         <div class="form-group">
             <label>Poznamka</label>
-            <input type="text" name="description" placeholder="Poznamka" class="form-control"> 
+            <input type="text" id="description"  name="description" placeholder="Poznamka" class="form-control"> 
         </div>
         <div class="form-group">
-            <label>API</label>
-            <input type="text" name="api_link" placeholder="Odkaz na stanicu" class="form-control">
+            <label>API s heslom</label>
+            <input type="text" id="api_link" name="api_link" placeholder="Odkaz na stanicu" class="form-control">
         </div>
         <div class="form-group">
             <label>userId</label>
