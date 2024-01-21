@@ -27,15 +27,19 @@
         @csrf
         <h1>Pridať novú stanicu</h1>
         <div class="form-group">
+            <label>Meno stanice</label>
             <input type="text" name="name" placeholder="Meno Stanice" class="form-control">
         </div>
         <div class="form-group">
+            <label>Poznamka</label>
             <input type="text" name="description" placeholder="Poznamka" class="form-control"> 
         </div>
         <div class="form-group">
+            <label>API</label>
             <input type="text" name="api_link" placeholder="Odkaz na stanicu" class="form-control">
         </div>
         <div class="form-group">
+            <label>userId</label>
             <input type="text" name="password" placeholder="UserID" value="{{$userid}}" class="form-control" disabled>
         </div>
         <input type="submit" value="uloz" class="btn btn-primary" id="formBtn">

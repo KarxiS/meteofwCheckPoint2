@@ -64,6 +64,14 @@
                         @endif
 
                         @if(Auth::check())
+                        @can('contact-show')
+                    <a class="p-2 {{ Request::is('contacts') ? 'link-secondary' : 'link-body-emphasis' }}"
+                        href="{{ url('/contacts') }}">Zaznamy formularov (logged only)</a>
+                        @endcan
+                        @endif
+
+
+                        @if(Auth::check())
                         @can('station-show')
                         <a class="nav-link" href="{{ route('users.index') }}">Manazer Uzivatelov</a>
 

@@ -29,8 +29,8 @@
                         </tr>
                         @endforeach
                         <tr class="table-danger">
-                            <td>Priemer: {{ $priemerTeplota }}</td>
-                            <td>Priemer: {{ $priemerVlhkost }}</td>
+                            <td>Priemer Teplota C*: {{ $priemerTeplota }}</td>
+                            <td>Priemer Vlhkost %: {{ $priemerVlhkost }}</td>
                         </tr>
                     </tbody>
                 </table>
