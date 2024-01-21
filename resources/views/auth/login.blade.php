@@ -44,4 +44,18 @@
             </x-primary-button>
         </div>
     </form>
+    <script>
+        function validateForm() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            if (email.trim() === '' || password.trim() === '') {
+                alert('Vyplnte vsetky polia.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
 </x-guest-layout>
