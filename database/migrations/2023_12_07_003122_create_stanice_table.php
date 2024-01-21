@@ -12,12 +12,14 @@ return new class extends Migration {
     {
         Schema::create('stanice', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->text('description');
             $table->string('api_link');
             $table->string('password');
             $table->timestamp('added_at')->nullable();
             $table->timestamps();
+
         });
     }
 

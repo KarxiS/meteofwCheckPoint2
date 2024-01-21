@@ -11,7 +11,11 @@ class StanicaController extends Controller
 {
     public function index()
     {
-        $stations = Stanica::all();
+        $stations = auth()->user();
+
+        $stations = $stations->stations;
+
+
         return view('stations.index', ['stations' => $stations]);
 
     }
@@ -29,7 +33,7 @@ class StanicaController extends Controller
             'api_link' => 'required|url',
             'password' => 'required|string|min:4',
         ]);
-
+        $data['user_id'] = auth()->id();
         $newStation = Stanica::create($data);
         return redirect(route('station.index'));
 
@@ -54,6 +58,7 @@ class StanicaController extends Controller
 
     public function delete(Stanica $station)
     {
+        $station->stationData()->delete();
         $station->delete();
         return redirect(route('station.index'))->with('OK', 'Stanica vymazana uspesne');
     }

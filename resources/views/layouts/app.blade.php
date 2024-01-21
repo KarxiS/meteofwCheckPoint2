@@ -59,6 +59,12 @@
                         @if(Auth::check())
                     <a class="p-2 {{ Request::is('stations') ? 'link-secondary' : 'link-body-emphasis' }}"
                         href="{{ url('/stations') }}">Pridanie Stanice (logged only)</a>
+                        <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
+                        <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
+                        <li><a class="nav-link" href="{{ route('products.index') }}">Manage Product</a></li>
+                        
+
+
                         @endif
                 </nav>
 

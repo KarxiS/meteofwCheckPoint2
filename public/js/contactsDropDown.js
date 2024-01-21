@@ -34,11 +34,10 @@ $(document).ready(function () {
         _token: csrf
       },
       success: function success(response) {
-        location.reload();
+        option.text(response.newStatus);
       },
       error: function error(response) {
-        // handle error, for example show an error message
-        alert("Error updating status");
+        alert("Error");
       }
     });
   });

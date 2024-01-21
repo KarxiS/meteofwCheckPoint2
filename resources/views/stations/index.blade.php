@@ -45,6 +45,7 @@
                 </tr>
             </thead>
             <tbody>
+                @if($stations)
                 @foreach($stations as $station)
                     <tr>
                         <td>{{ $station->id }}</td>
@@ -70,6 +71,11 @@
                         </td>
                     </tr>
                 @endforeach
+                @else
+                <tr>
+                    <td colspan="9">Nemate pridane ziadne stanice</td>
+                </tr>
+            @endif
             </tbody>
         </table>
     </div>

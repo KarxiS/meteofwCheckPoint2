@@ -15,6 +15,7 @@ class Stanica extends Model
         'description',
         'api_link',
         'password',
+        'user_id',
     ];
 
 
@@ -27,5 +28,15 @@ class Stanica extends Model
         static::creating(function ($stanica) {
             $stanica->added_at = now();
         });
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function stationData()
+    {
+        return $this->hasMany(StationData::class, 'station_id');
     }
 }

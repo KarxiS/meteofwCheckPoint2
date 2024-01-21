@@ -54,21 +54,38 @@
                         <td>{{ $contact->email }}</td>
                         <td>{{ $contact->phone }}</td>
                         <td>{{ $contact->text }}</td>
+                        
                         <td>
+                            @can('contact-edit')
                             <select class="statusContact" data-id="{{ $contact->id }}">
                                 <option value="0" {{ $contact->status == 0 ? 'selected' : '' }}>Nove</option>
                                 <option value="1" {{ $contact->status == 1 ? 'selected' : '' }}>Vyriesene</option>
                             </select>
+                            @else
+                            <select class="statusContact" data-id="{{ $contact->id }}" disabled>
+                                <option value="0" {{ $contact->status == 0 ? 'selected' : '' }}>Nove</option>
+                                <option value="1" {{ $contact->status == 1 ? 'selected' : '' }}>Vyriesene</option>
+                            </select>
+                        @endcan
                         </td>
-
-                        <td>
-                            <form method="POST" action="{{route('contact.delete', ['contact' => $contact])}}">
-                                @csrf
-                                @method('delete')
-                                <button type="submit">Vymaz</button>
-                            </form>
+                      
+                        
                             
+                        
+                        <td>
+                            @can('contact-delete')
+                           
+                                <form method="POST" action="{{route('contact.delete', ['contact' => $contact])}}">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit">Vymaz</button>
+                                </form>
+                                @else
+                                <button type="submit" disabled>Vymaz</button>
+                            @endcan
                         </td>
+                       
+                        
                     </tr>
                 @endforeach
             </tbody>

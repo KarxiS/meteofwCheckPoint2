@@ -3,6 +3,7 @@ $(document).ready(function () {
         var status = $(this).val();
         var id = $(this).data("id");
         var csrf = $('meta[name="csrf-token"]').attr("content");
+
         $.ajax({
             url: "/contacts/" + id + "/updateStatus",
             type: "POST",
@@ -11,11 +12,10 @@ $(document).ready(function () {
                 _token: csrf,
             },
             success: function (response) {
-                location.reload();
+                option.text(response.newStatus);
             },
             error: function (response) {
-                // handle error, for example show an error message
-                alert("Error updating status");
+                alert("Error");
             },
         });
     });

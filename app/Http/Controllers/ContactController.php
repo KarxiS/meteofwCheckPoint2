@@ -55,7 +55,7 @@ class ContactController extends Controller
             $contact->status = $data['status'];
             $contact->save();
 
-            return response()->json(['success' => 'Nastavene']);
+            return response()->json(['success' => $data['status']]);
         } catch (\Exception $e) {
             return response()->json(['error' => "error"], 500);
         }

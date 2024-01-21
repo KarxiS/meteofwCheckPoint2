@@ -2,6 +2,9 @@
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\StanicaController;
 
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,6 +63,11 @@ Route::put('/stations/{station}/update', [StanicaController::class, 'update'])->
 Route::delete('/stations/{station}/delete', [StanicaController::class, 'delete'])->name('station.delete');
 
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('products', ProductController::class);
+});
 
 #TODO
 Route::get('/get_mail', [MailController::class, 'mailform']);
