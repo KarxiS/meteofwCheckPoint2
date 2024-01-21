@@ -6,8 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
+                        <img src="{{ asset('/images/meteoLogo.png') }}" alt="Your Logo">
+                </a>
                 </div>
 
                 <!-- Navigation Links -->
@@ -91,7 +91,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Odhlasit sa') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

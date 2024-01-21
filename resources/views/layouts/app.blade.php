@@ -99,12 +99,17 @@
                 <div class="dropdown">
                     <a href="#" class="d-block text-dark text-decoration-none dropdown-toggle" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown">
+
+                        @if(Auth::user()->picture)
+                        <img src="{{asset(Auth::user()->picture)}}" alt="" width="32" height="32" class="rounded-circle">
+                        @else
                         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle">
+                        @endif
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="">Vlož dáta</a></li>
-                        <x-responsive-nav-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                        <li><x-responsive-nav-link :href="route('profile.edit')">
+                            {{ __('Profil') }}
                         </x-responsive-nav-link> <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -112,7 +117,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a class="dropdown-item" href="#" onclick="event.preventDefault(); this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Odhlasit sa') }}
                                 </a>
                             </form>
                         </li>
@@ -121,6 +126,7 @@
                     </ul>
                 </div>
                 @else <a class="p-2 " href="{{ url('/login') }}">Login</a>
+                         <a class="p-2 " href="{{ url('/register') }}">Register</a>
                 @endif
             </div>
         </div>
