@@ -26,6 +26,8 @@ class ContactController extends Controller
 
     public function edit(Contact $contact)
     {
+
+
         return view('contacts.edit', ['contact' => $contact]);
     }
 
@@ -81,12 +83,12 @@ class ContactController extends Controller
         ]);
 
 
-        $contact = new Contact;
-        $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->phone = $request->phonenumber;
-        $contact->text = $request->message;
-        $contact->status = 0;
-        $contact->save();
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phonenumber,
+            'text' => $request->message,
+            'status' => 0,
+        ]);
     }
 }

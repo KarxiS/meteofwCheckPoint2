@@ -35,11 +35,14 @@ class StanicaController extends Controller
 
     public function create()
     {
+
         return view('stations.create', ['userid' => auth()->id()]);
     }
 
     public function store(Request $request)
     {
+
+
         $data = $request->validate([
             'name' => 'required|string|max:50',
             'description' => 'required|string',
@@ -47,6 +50,9 @@ class StanicaController extends Controller
 
         ]);
         $data['user_id'] = auth()->id();
+
+
+
         $newStation = Stanica::create($data);
         return redirect(route('station.index'));
 
@@ -54,6 +60,16 @@ class StanicaController extends Controller
     }
     public function showData(Stanica $station)
     {
+        if (auth()->user()->id !== $station->user_id) {
+
+            if (!auth()->user()->hasPermissionTo('station-all')) {
+                abort(403, 'Unauthorized action.');
+            }
+
+
+        }
+
+
         $data = StationData::where('station_id', $station->id)->get();
         $priemerTeplota = $data->avg('temperature');
         $priemerVlhkost = $data->avg('humidity');
@@ -70,11 +86,31 @@ class StanicaController extends Controller
 
     public function edit(Stanica $station)
     {
+        if (auth()->user()->id !== $station->user_id) {
+
+            if (!auth()->user()->hasPermissionTo('station-all')) {
+                abort(403, 'Unauthorized action.');
+            }
+
+
+        }
+
+
         return view('stations.edit', ['station' => $station]);
     }
 
     public function delete(Stanica $station)
     {
+        if (auth()->user()->id !== $station->user_id) {
+
+            if (!auth()->user()->hasPermissionTo('station-all')) {
+                abort(403, 'Unauthorized action.');
+            }
+
+
+        }
+
+
         $station->stationData()->delete();
         $station->delete();
         return redirect(route('station.index'))->with('OK', 'Stanica vymazana uspesne');
@@ -82,6 +118,17 @@ class StanicaController extends Controller
 
     public function update(Stanica $station, Request $request)
     {
+        if (auth()->user()->id !== $station->user_id) {
+
+            if (!auth()->user()->hasPermissionTo('station-all')) {
+                abort(403, 'Unauthorized action.');
+            }
+
+
+        }
+
+
+
         try {
             $data = $request->validate([
                 'name' => 'required|string|max:50|min:4',
