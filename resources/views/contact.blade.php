@@ -77,15 +77,19 @@
         <h6 class="">Kontaktný formulár</h6>
         <form id="contactform" method="post" novalidate="novalidate" action="#" data-url="{{ url('/contact') }}">
             <div class="form-group ">
+                <label>Meno a priezvisko</label>
                 <input type="text" name="name" class="form-control" id="nameSpoj" placeholder="Meno a priezvisko *">
             </div>
             <div class="form-group ">
+                <label>Email</label>
                 <input type="text" name="email" class="form-control" id="emailSpoj" placeholder="E-mail *">
             </div>
             <div class="form-group ">
+                <label>Tel. cislo</label>
                 <input type="text" name="phonenumber" class="form-control" id="phoneSpoj" placeholder="Tel. číslo">
             </div>
             <div class="form-group ">
+                <label>Sprava</label>
                 <textarea name="message" class="form-control" rows="7" placeholder="Text správy"
                     id="messSpoj"></textarea>
             </div>

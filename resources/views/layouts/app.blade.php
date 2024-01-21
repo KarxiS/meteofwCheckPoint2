@@ -65,14 +65,14 @@
 
                         @if(Auth::check())
                         @can('station-show')
-                        <a class="nav-link" href="{{ route('users.index') }}">Manage Users</a>
+                        <a class="nav-link" href="{{ route('users.index') }}">Manazer Uzivatelov</a>
 
                         @endcan
                         @endif
 
                         @if(Auth::check())
                         @can('admin')
-                        <a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a>
+                        <a class="nav-link" href="{{ route('roles.index') }}">Manazer Roli</a>
                         @endcan
                         @endif
 
