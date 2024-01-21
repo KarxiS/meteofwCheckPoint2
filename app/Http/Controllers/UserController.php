@@ -20,7 +20,7 @@ class UserController extends Controller
 
     function __construct()
     {
-        $this->middleware('permission:role-show|role-show', ['only' => ['index']]);
+        $this->middleware('permission:role-list', ['only' => ['index']]);
         $this->middleware('permission:role-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:role-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:role-delete', ['only' => ['destroy']]);

@@ -72,7 +72,7 @@
 
 
                         @if(Auth::check())
-                        @can('station-show')
+                        @can('role-list')
                         <a class="nav-link" href="{{ route('users.index') }}">Manazer Uzivatelov</a>
 
                         @endcan
