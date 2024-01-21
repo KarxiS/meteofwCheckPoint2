@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h1 class="text-center my-4">Stanica s ID: {{ $data[0]->station_id }}</h1>
+                <h1 class="text-center my-4">Stanica s ID: {{ $stanica_id }}</h1>
                 <table class="table">
                     <thead>
                         <tr>

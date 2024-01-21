@@ -14,6 +14,7 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/contactsDropDown.js') }}"></script>
+    <script src="{{ asset('js/sendEmail2.js') }}"></script>
     
     
 </head>
@@ -44,6 +45,7 @@
                     <th>Text</th>
                     <th>Stav</th>
                     <th>Vymaz</th>
+                    <th>Posli mail</th>
                 </tr>
             </thead>
             <tbody>
@@ -63,8 +65,8 @@
                             </select>
                             @else
                             <select class="statusContact" id="{{ $contact->id }}" data-id="{{ $contact->id }}" disabled>
-                                <option value="0" {{ $contact->status == 0 ? 'selected' : '' }}>Nove</option>
-                                <option value="1" {{ $contact->status == 1 ? 'selected' : '' }}>Vyriesene</option>
+                                <option value="{{ $contact->status == 0}}" {{ $contact->status == 0 ? 'selected' : '' }}>Nove</option>
+                
                             </select>
                         @endcan
                         </td>
@@ -84,7 +86,22 @@
                                 <button type="submit" disabled>Vymaz</button>
                             @endcan
                         </td>
-                       
+                        
+                            <td>
+                                @can('mail-send')
+                                <button type="button" contact_id="{{ $contact->id }}"  class="emailSend btn btn-primary"  data-toggle="button" aria-pressed="false" autocomplete="off" data-contact-id="{{ $contact->id }}">Poslat email</button>
+                                <div class="emailFormContainer" data-contact-id="{{ $contact->id }}" style="display: none;">
+                                    <div>TEXT DO EMAILU</div>
+                                    <input type="text" id="text1" data-contact-id="{{ $contact->id}}"  placeholder="Vas text pre zaujemcu">
+                                    <button type="button"  data-status="{{ $contact->status}}" contact_id="{{ $contact->id }}" class="sendEmailButton" aria-pressed="false" autocomplete="off" data-contact-id="{{ $contact->id }}">Poslat email</button>
+                                </div>
+                                @else
+                                <button type="button" contact_id="{{ $contact->id }}"  class="emailSend btn btn-primary"  data-toggle="button" aria-pressed="false" autocomplete="off" data-contact-id="{{ $contact->id }} " disabled>Poslat email</button>
+                                @endcan
+
+                            </td>
+                            
+                        
                         
                     </tr>
                 @endforeach

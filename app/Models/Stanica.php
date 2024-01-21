@@ -14,7 +14,6 @@ class Stanica extends Model
         'name',
         'description',
         'api_link',
-        'password',
         'user_id',
     ];
 

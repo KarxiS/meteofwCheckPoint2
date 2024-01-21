@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use App\Models\Stanica;
 use App\Models\StationData;
+use GuzzleHttp\Client;
 
 class getAndStoreStanicaData extends Command
 {
@@ -28,35 +29,33 @@ class getAndStoreStanicaData extends Command
      */
     public function handle()
     {
-        /**$client = new \GuzzleHttp\Client();
+        $client = new Client();
         $stations = Stanica::all();
 
         foreach ($stations as $station) {
             try {
                 $response = $client->request('GET', $station->api_link);
                 $data = json_decode($response->getBody()->getContents());
-                if ($response->getStatusCode() != 200 || !isset($data->temperature) || !isset($data->humidity)) {
-                    DB::table('station_data')->insert([
-                        'station_id' => $station->id,
-                        'temperature' => 0,
-                        'humidity' => 0,
-                    ]);
+                $apiKey = config($station->password);
+                if ($response->getStatusCode() != 200 || !isset($data->current->temp_c) || !isset($data->current->humidity)) {
                     continue;
+                } else {
+                    $temperature = $data->current->temp_c;
+                    $humidity = $data->current->humidity;
                 }
-                $temperature = $data->temperature;
-                $humidity = $data->humidity;
 
-
-                DB::table('station_data')->insert([
+                StationData::create([
                     'station_id' => $station->id,
                     'temperature' => $temperature,
                     'humidity' => $humidity,
                 ]);
             } catch (\Exception $ex) {
-                //vyhod ..
+                // Handler..
+                $this->error("Failed to fetch data for station {$station->name}: {$ex->getMessage()}");
             }
-        }*/
-        $stations = Stanica::all();
+        }
+
+        /**$stations = Stanica::all();
 
         foreach ($stations as $station) {
             try {
@@ -72,7 +71,7 @@ class getAndStoreStanicaData extends Command
             } catch (\Exception $ex) {
                 // Handle..
             }
-        }
+        }*/
 
 
 

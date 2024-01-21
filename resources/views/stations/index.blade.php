@@ -37,7 +37,7 @@
                     <th>Meno</th>
                     <th>Popis</th>
                     <th>API Link</th>
-                    <th>Heslo</th>
+                    <th>UserID</th>
                     <th>Pridane</th>
                     <th>Udaje</th>
                     <th>Upraviť</th>
@@ -52,7 +52,7 @@
                         <td>{{ $station->name }}</td>
                         <td>{{ $station->description }}</td>
                         <td>{{ $station->api_link }}</td>
-                        <td>{{ $station->password }}</td>
+                        <td>{{ $station->user_id}}</td>
                         <td>{{ $station->added_at }}</td>
                         <td>
                             <a href="{{route("station.data", ['station' => $station])}}">Ukaz</a>

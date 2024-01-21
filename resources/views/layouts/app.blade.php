@@ -57,15 +57,30 @@
                     <a class="p-2 {{ Request::is('contact') ? 'link-secondary' : 'link-body-emphasis' }}"
                         href="{{ url('/contact') }}">Kontakt</a>
                         @if(Auth::check())
+                        @can('station-show')
                     <a class="p-2 {{ Request::is('stations') ? 'link-secondary' : 'link-body-emphasis' }}"
                         href="{{ url('/stations') }}">Pridanie Stanice (logged only)</a>
-                        <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
-                        <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
-                        <li><a class="nav-link" href="{{ route('products.index') }}">Manage Product</a></li>
+                        @endcan
+                        @endif
+
+                        @if(Auth::check())
+                        @can('station-show')
+                        <a class="nav-link" href="{{ route('users.index') }}">Manage Users</a>
+
+                        @endcan
+                        @endif
+
+                        @if(Auth::check())
+                        @can('admin')
+                        <a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a>
+                        @endcan
+                        @endif
+
+                        
                         
 
 
-                        @endif
+                       
                 </nav>
 
 
@@ -79,7 +94,7 @@
                         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="{{ url('/vlozenieData') }}">Vlož dáta</a></li>
+                        <li><a class="dropdown-item" href="">Vlož dáta</a></li>
                         <x-responsive-nav-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-responsive-nav-link> <li>

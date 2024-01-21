@@ -8,6 +8,15 @@ use App\Models\Contact;
 
 class ContactController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware('permission:contact-list|contact-edit|contact-delete', ['only' => ['index']]);
+        $this->middleware('permission:contact-edit', ['only' => ['edit', 'updateStatus', 'update']]);
+        $this->middleware('permission:contact-delete', ['only' => ['delete']]);
+
+    }
+
     public function index()
     {
         $contacts = Contact::all();

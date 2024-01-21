@@ -9,11 +9,24 @@ use App\Models\StationData;
 
 class StanicaController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware('permission:station-show|stationData-show|station-all', ['only' => ['index', 'showData']]);
+        $this->middleware('permission:station-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:station-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:station-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
-        $stations = auth()->user();
+        if (auth()->user()->hasPermissionTo('station-all')) {
 
-        $stations = $stations->stations;
+            $stations = Stanica::all();
+        } else {
+
+            $stations = auth()->user()->stations;
+        }
 
 
         return view('stations.index', ['stations' => $stations]);
@@ -22,7 +35,7 @@ class StanicaController extends Controller
 
     public function create()
     {
-        return view('stations.create');
+        return view('stations.create', ['userid' => auth()->id()]);
     }
 
     public function store(Request $request)
@@ -31,7 +44,7 @@ class StanicaController extends Controller
             'name' => 'required|string|max:50',
             'description' => 'required|string',
             'api_link' => 'required|url',
-            'password' => 'required|string|min:4',
+
         ]);
         $data['user_id'] = auth()->id();
         $newStation = Stanica::create($data);
@@ -44,10 +57,14 @@ class StanicaController extends Controller
         $data = StationData::where('station_id', $station->id)->get();
         $priemerTeplota = $data->avg('temperature');
         $priemerVlhkost = $data->avg('humidity');
+
+
+
         return view('stations.data', [
             'data' => $data,
             'priemerTeplota' => $priemerTeplota,
             'priemerVlhkost' => $priemerVlhkost,
+            'stanica_id' => $station->id,
         ]);
     }
 
@@ -68,9 +85,8 @@ class StanicaController extends Controller
         try {
             $data = $request->validate([
                 'name' => 'required|string|max:50|min:4',
-                'description' => 'required|string|min:4',
+                'description' => 'required|string|min:4|max:50',
                 'api_link' => 'required|url',
-                'password' => 'required|string|min:4',
             ]);
 
             $station->update($data);

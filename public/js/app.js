@@ -5432,6 +5432,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/login.css":
+/*!*********************************!*\
+  !*** ./resources/css/login.css ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -9805,6 +9818,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /******/ 			"css/contact": 0,
 /******/ 			"css/zafarbenieTable": 0,
 /******/ 			"css/carousel": 0,
+/******/ 			"css/login": 0,
 /******/ 			"css/zariadenia": 0,
 /******/ 			"css/nastaveniaFarieb": 0,
 /******/ 			"css/index": 0,
@@ -9858,16 +9872,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/carousel.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/zafarbenieTable.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/contact.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/header.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/index.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/nastaveniaFarieb.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/zariadenia.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/carousel.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/zafarbenieTable.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/contact.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/header.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/index.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/nastaveniaFarieb.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/zariadenia.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/contact","css/zafarbenieTable","css/carousel","css/login","css/zariadenia","css/nastaveniaFarieb","css/index","css/header"], () => (__webpack_require__("./resources/css/login.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

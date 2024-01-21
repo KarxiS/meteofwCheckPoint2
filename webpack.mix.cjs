@@ -11,6 +11,8 @@ mix.js("resources/js/app.js", "public/js")
     .postCss("resources/css/index.css", "public/css")
     .postCss("resources/css/nastaveniaFarieb.css", "public/css")
     .postCss("resources/css/zariadenia.css", "public/css")
+    .postCss("resources/css/login.css", "public/css")
     .copyDirectory("resources/images", "public/images")
     .js("resources/js/formSpojme.js", "public/js")
+    .js("resources/js/sendEmail2.js", "public/js")
     .js("resources/js/contactsDropDown.js", "public/js");

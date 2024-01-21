@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->string('name');
             $table->text('description');
             $table->string('api_link');
-            $table->string('password');
             $table->timestamp('added_at')->nullable();
             $table->timestamps();
 

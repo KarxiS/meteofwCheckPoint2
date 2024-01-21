@@ -39,7 +39,7 @@
             <input type="text" name="api_link" placeholder="Odkaz na stanicu" value="{{$station->api_link}}" class="form-control">
         </div>
         <div class="form-group">
-            <input type="text" name="password" placeholder="Heslo" value="{{$station->password}}" class="form-control">
+            <input type="text" name="password" placeholder="UserID" value="{{$station->user_id}}" class="form-control" disabled>
         </div>
         <input type="submit" value="uloz" class="btn btn-primary" id="formBtn">
     </form>
