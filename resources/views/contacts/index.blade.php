@@ -57,12 +57,12 @@
                         
                         <td>
                             @can('contact-edit')
-                            <select class="statusContact" data-id="{{ $contact->id }}">
+                            <select class="statusContact" id="{{ $contact->id }}" data-id="{{ $contact->id }}">
                                 <option value="0" {{ $contact->status == 0 ? 'selected' : '' }}>Nove</option>
                                 <option value="1" {{ $contact->status == 1 ? 'selected' : '' }}>Vyriesene</option>
                             </select>
                             @else
-                            <select class="statusContact" data-id="{{ $contact->id }}" disabled>
+                            <select class="statusContact" id="{{ $contact->id }}" data-id="{{ $contact->id }}" disabled>
                                 <option value="0" {{ $contact->status == 0 ? 'selected' : '' }}>Nove</option>
                                 <option value="1" {{ $contact->status == 1 ? 'selected' : '' }}>Vyriesene</option>
                             </select>

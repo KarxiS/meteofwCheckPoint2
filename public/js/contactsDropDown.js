@@ -26,6 +26,7 @@ $(document).ready(function () {
     var status = $(this).val();
     var id = $(this).data("id");
     var csrf = $('meta[name="csrf-token"]').attr("content");
+    var selectElement = $(this);
     $.ajax({
       url: "/contacts/" + id + "/updateStatus",
       type: "POST",
@@ -34,7 +35,7 @@ $(document).ready(function () {
         _token: csrf
       },
       success: function success(response) {
-        option.text(response.newStatus);
+        selectElement.find("option[value='" + status + "']").text(response.newStatus);
       },
       error: function error(response) {
         alert("Error");
