@@ -15,7 +15,11 @@ $(document).ready(function () {
 
         sendEmail(contactId, inputField, dataStatus);
         inputField.val("");
-        $(this).text("Odoslane");
+
+        $(this)
+            .text("Odoslane")
+            .removeClass("btn-primary")
+            .addClass("btn-success");
     });
 
     function sendEmail(contactId, text1, dataStatus) {

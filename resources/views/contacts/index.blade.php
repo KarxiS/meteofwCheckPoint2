@@ -80,10 +80,10 @@
                                 <form method="POST" action="{{route('contact.delete', ['contact' => $contact])}}">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit">Vymaz</button>
+                                    <button class="btn btn-danger" type="submit">Vymaz</button>
                                 </form>
                                 @else
-                                <button type="submit" disabled>Vymaz</button>
+                                <button class="btn btn-danger" type="submit" disabled>Vymaz</button>
                             @endcan
                         </td>
                         
@@ -91,9 +91,9 @@
                                 @can('mail-send')
                                 <button type="button" contact_id="{{ $contact->id }}"  class="emailSend btn btn-primary"  data-toggle="button" aria-pressed="false" autocomplete="off" data-contact-id="{{ $contact->id }}">Poslat email</button>
                                 <div class="emailFormContainer" data-contact-id="{{ $contact->id }}" style="display: none;">
-                                    <div>TEXT DO EMAILU</div>
-                                    <input type="text" id="text1" data-contact-id="{{ $contact->id}}"  placeholder="Vas text pre zaujemcu">
-                                    <button type="button"  data-status="{{ $contact->status}}" contact_id="{{ $contact->id }}" class="sendEmailButton" aria-pressed="false" autocomplete="off" data-contact-id="{{ $contact->id }}">Poslat email</button>
+                                    <div class="alert alert-info d-inline-block" role="alert" >TEXT DO EMAILU</div><br>
+                                    <input type="text" id="text1" data-contact-id="{{ $contact->id}}"  placeholder="Vas text pre zaujemcu"><br>
+                                    <button type="button"   data-status="{{ $contact->status}}" contact_id="{{ $contact->id }}" class="sendEmailButton btn btn-primary" aria-pressed="false" autocomplete="off" data-contact-id="{{ $contact->id }}">Poslat email</button>
                                 </div>
                                 @else
                                 <button type="button" contact_id="{{ $contact->id }}"  class="emailSend btn btn-primary"  data-toggle="button" aria-pressed="false" autocomplete="off" data-contact-id="{{ $contact->id }} " disabled>Poslat email</button>
