@@ -47,11 +47,9 @@ Route::get('/contact', function () {
     return view('contact');
 });
 Route::post('/contact', [ContactController::class, 'store']);
-
-
 Route::get('/contacts', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/contacts/{id}/updateStatus', [ContactController::class, 'updateStatus']);
-Route::put('/contacts/{contact}/update', [ContactController::class, 'update'])->name('contact.update');
+
 Route::delete('/contacts/{contact}/delete', [ContactController::class, 'delete'])->name('contact.delete');
 
 
@@ -68,8 +66,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
 });
-
-#TODO
-
 
 Route::post('/send-email', [MailController::class, 'maildata'])->name('send-email');
