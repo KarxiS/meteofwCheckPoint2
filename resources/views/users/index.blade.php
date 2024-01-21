@@ -45,7 +45,7 @@
        <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Ukaz</a>
        <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Uprav</a>
         {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+            {!! Form::submit('Vymazat', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
     </td>
   </tr>
