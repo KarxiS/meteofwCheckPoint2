@@ -872,9 +872,6 @@ select {
 .h-16 {
   height: 4rem;
 }
-.h-20 {
-  height: 5rem;
-}
 .h-24 {
   height: 6rem;
 }
@@ -890,14 +887,8 @@ select {
 .h-8 {
   height: 2rem;
 }
-.h-9 {
-  height: 2.25rem;
-}
 .min-h-screen {
   min-height: 100vh;
-}
-.w-20 {
-  width: 5rem;
 }
 .w-24 {
   width: 6rem;
@@ -1015,6 +1006,9 @@ select {
 }
 .overflow-y-hidden {
   overflow-y: hidden;
+}
+.break-all {
+  word-break: break-all;
 }
 .rounded {
   border-radius: 0.25rem;

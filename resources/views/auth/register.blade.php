@@ -53,21 +53,4 @@
             </x-primary-button>
         </div>
     </form>
-
-    <script>
-        function validateForm() {
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-            var confirmPassword = document.getElementById('password_confirmation').value;
-
-            if (name.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
-                alert('Vyplnte vsetky polia');
-                return false;
-            }
-
-            return true;
-        }
-    </script>
-
 </x-guest-layout>
