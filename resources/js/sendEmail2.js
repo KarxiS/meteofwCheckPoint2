@@ -37,11 +37,11 @@ $(document).ready(function () {
                 _token: csrf,
             },
             success: function (response) {
-                console.log("Email sent successfully");
+                console.log("Email poslany");
             },
             error: function (response) {
                 console.error(response);
-                console.error("Error sending email");
+                console.error("Error");
             },
         });
     }

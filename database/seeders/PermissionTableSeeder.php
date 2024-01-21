@@ -8,7 +8,7 @@ use Spatie\Permission\Models\Permission;
 class PermissionTableSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      *
      * @return void
      */

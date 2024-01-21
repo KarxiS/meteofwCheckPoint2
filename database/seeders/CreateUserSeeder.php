@@ -11,7 +11,7 @@ use Spatie\Permission\Models\Permission;
 class CreateUserSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      */
     public function run(): void
     {
